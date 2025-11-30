@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { connectDB } from "./config/db.js";
 import topicRoutes from "./routes/topicRoutes.js";
 import quizRoutes from "./routes/quizRoutes.js";
@@ -13,7 +14,7 @@ dotenv.config();
 connectDB();
 const app = express();
 
-const cookieParser = require("cookie-parser");
+app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
@@ -32,7 +33,6 @@ app.use(
 );
 
 // This MUST appear before routes
-app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/topics", topicRoutes);
@@ -53,8 +53,8 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
-    app.listen(process.env.PORT || 5000, () =>
-      console.log(`Server running on port ${process.env.PORT || 5000}`)
+    app.listen(process.env.PORT || 5050, () =>
+      console.log(`Server running on port ${process.env.PORT || 5050}`)
     );
   })
   .catch((err) => console.error(err));
