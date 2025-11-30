@@ -42,4 +42,13 @@ export async function getQuizById(topicId) {
   return res.data;
 }
 
+export async function getProfile() {
+  const res = await fetch(`${API_URL}/api/users/me`, {
+    method: "GET",
+    credentials: "include",
+  });
+
+  return res.json();
+}
+
 
