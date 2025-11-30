@@ -4,6 +4,7 @@ console.log(">> NEW API.JS LOADED <<");
 import axios from "axios";
 
 // 1️⃣ Read backend URL from .env (Vercel will inject VITE_API_URL automatically), has to use render instead of vercel, because Vercel does NOT run server.js and does NOT support long-running Express servers.
+console.log("API URL loaded:", import.meta.env.VITE_API_URL);
 export const API_URL = import.meta.env.VITE_API_URL;
 
 
