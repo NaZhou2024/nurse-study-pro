@@ -32,3 +32,4 @@ router.get("/me", auth, async (req, res) => {
 });
 
 export default router;
+router.post("/login", loginUser);
