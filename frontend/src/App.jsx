@@ -8,7 +8,10 @@ function App() {
 
   // ✅ Add the test connection code here
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/topics`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/topics`, {
+      method: "GET",
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => console.log("Frontend ➜ Backend connection OK:", data))
       .catch((err) => console.error("Connection FAILED:", err));

@@ -28,7 +28,7 @@ function getToken() {
 export async function getTopics() {
   const res = await fetch(`${API_URL}/api/topics`, {
   method: "GET",
-  credentials: "include"
+  credentials: "include",
   });
   return res.json();
 }
@@ -37,7 +37,7 @@ export async function getTopics() {
 export async function getQuizById(topicId) {
   const res = await axios.get(`${API_URL}/api/quizzes/topic/${topicId}`, {
     method: "GET",
-    credentials: "include"
+    credentials: "include",
   });
   return res.data;
 }
