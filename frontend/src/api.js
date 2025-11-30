@@ -27,17 +27,17 @@ function getToken() {
 // 3️⃣ Get ALL topics
 export async function getTopics() {
   const res = await fetch(`${API_URL}/api/topics`, {
-    headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
-});
+  method: "GET",
+  credentials: "include"
+  });
   return res.json();
 }
 
 // 4️⃣ Get quizzes for one topic
 export async function getQuizById(topicId) {
   const res = await axios.get(`${API_URL}/api/quizzes/topic/${topicId}`, {
-    withCredentials: true,
+    method: "GET",
+    credentials: "include"
   });
   return res.data;
 }
