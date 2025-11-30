@@ -13,6 +13,9 @@ dotenv.config();
 connectDB();
 const app = express();
 
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://nurse-study-pro.vercel.app",
